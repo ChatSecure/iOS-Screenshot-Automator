@@ -3,9 +3,12 @@
 on run argv
 	-- Set all devices you want to use for screenshots here 
 	-- (has to match the name of the menu items of the iOS Simulator)
-	set allDevices to {"iPad"}
+	-- set allDevices to {"iPhone (Retina 3.5-inch)"}
+	set allDevices to {"iPhone (Retina 4-inch)","iPad (Retina)","iPhone (Retina 3.5-inch)"}
 	-- Set all languages your app is translated to. 
-	set allLanguages to {"ru"}
+	-- set allLanguages to {"en"}
+	set allLanguages to {"pt_BR","de","no","sv","ru","zh_CN","tr"}
+	-- {"pt_BR","en","de","no","sv","ru","zh_CN","tr"}
 	
 	set iOSVersion to "6.1"
 	

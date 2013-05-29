@@ -6,7 +6,7 @@ test("test Device",DeviceTest)
 test("Settings Test", SettingsTest);
 test("Login Test", LoginTest);
 test("Buddy List Test",BuddyListTest);
-test("Chat Test",ChatTest);
+// test("Chat Test",ChatTest);
 
 function DeviceTest(target,app)
 {
