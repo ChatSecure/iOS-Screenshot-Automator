@@ -1,12 +1,12 @@
 #import "./Helper.js"
 #import "./tuneup_js/test.js"
 
-test("test Device",DeviceTest)
+test("test Device",DeviceTest);
 
-test("Settings Test", SettingsTest);
+test("Account Test", SettingsTest);
 test("Login Test", LoginTest);
 test("Buddy List Test",BuddyListTest);
-// test("Chat Test",ChatTest);
+test("Chat Test",ChatLogTest);
 
 function DeviceTest(target,app)
 {
@@ -23,49 +23,77 @@ function DeviceTest(target,app)
 	
 }
 
+function pressBackButton(target, app)
+{
+	var window = app.mainWindow();
+    var navBar = window.navigationBar();
+    var backButton = navBar.leftButton();
+    backButton.tap();
+    target.delay(1);
+}
+
 function SettingsTest(target, app)
 {
     var window = app.mainWindow();
     var navBar = window.navigationBars()[0];
     var settingsButton = navBar.rightButton();
     settingsButton.tap();
+    var tableView = app.mainWindow().tableViews()[0];
+    tableView.cells()[1].tap();
     target.delay(1);
 
 
-    captureLocalizedScreenshot("Settings");
+    captureLocalizedScreenshot("Accounts");
+    target.delay(1);
 
-    
+    tableView = app.mainWindow().tableViews()[0];
+    tableView.cells()[2].tap();
+    target.delay(1);
+
+    captureLocalizedScreenshot("XMPP_Settings");
+    target.delay(1);
+
+
+    pressBackButton(target,app);
+    pressBackButton(target,app);
 
 }
 
 function LoginTest(target, app)
 {
 	var tableView = app.mainWindow().tableViews()[0];
-    tableView.cells()[0].tap()
-    target.delay(1)
+    tableView.cells()[0].tap();
+    target.delay(1);
 
-    captureLocalizedScreenshot("Login");
+    //captureLocalizedScreenshot("Login");
 
 
     var window = app.mainWindow();
-    var navBar = window.navigationBar();
+    var navBar = window.navigationBars()[0];
     var settingsButton = navBar.rightButton();
     settingsButton.tap();
 
     target.delay(5);
+    pressBackButton(target,app);
     
 }
 
 function BuddyListTest(target, app)
 {
-	var window = app.mainWindow();
-    var navBar = window.navigationBar();
-    var settingsButton = navBar.leftButton();
-    settingsButton.tap();
-
+	target.delay(1);
+	//pressBackButton(target,app);
     target.delay(1);
 
     captureLocalizedScreenshot("BuddyList");
+}
+
+function ChatLogTest(target,app)
+{
+	var tableView = app.mainWindow().tableViews()[0];
+	tableView.cells()[0].tap();
+	target.delay(1);
+	captureLocalizedScreenshot("ChatLog");
+	target.delay(1);
 }
 
 function ChatTest(target, app)
