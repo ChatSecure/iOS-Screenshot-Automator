@@ -6,8 +6,10 @@ on run argv
 	-- set allDevices to {"iPhone Retina (3.5-inch)" , "iPhone Retina (4-inch)", "iPad Retina"}
 	set allDevices to {"iPhone Retina (3.5-inch)"}
 	-- Set all languages your app is translated to. 
-	 set allLanguages to {"en","de"}
-	-- set allLanguages to {"pt_BR","de","no","sv","ru","zh_CN","tr"}
+	-- set allLanguages to {"en","de"}
+	--set allLanguages to {"no"}
+	set allLanguages to {"en","pt_BR","de","no","sv","ru","zh_CN","tr","el","id","it","es","vi"}
+	set allLanguages to {"it","es","vi"}
 	-- {"pt_BR","en","de","no","sv","ru","zh_CN","tr"}
 	
 
@@ -174,28 +176,28 @@ on setupFolders()
 end setupFolders
 
 on changeDevice(deviceName)
-	delay (1)
-	logEvent("Start changing device to " & deviceName)
-	
-	tell application "iPhone Simulator" to activate
-	tell application "System Events"
-		tell process "iPhone Simulator"
-			tell menu bar 1
-				tell menu bar item 5
-					-- Hardware menu
-					tell menu 1
-						-- Device
-						tell menu item 1
-							-- Device sub menu
-							tell menu 1
-								click menu item deviceName
-							end tell
-						end tell
-          			end tell
-        		end tell
-      		end tell
-    	end tell
-  	end tell
-	
-	logEvent("Changed device to " & deviceName)
+        delay (1)
+        logEvent("Start changing device to " & deviceName)
+        
+        tell application "iPhone Simulator" to activate
+        tell application "System Events"
+                tell process "iPhone Simulator"
+                        tell menu bar 1
+                                tell menu bar item 5
+                                        -- Hardware menu
+                                        tell menu 1
+                                                -- Device
+                                                tell menu item 1
+                                                        -- Device sub menu
+                                                        tell menu 1
+                                                                click menu item deviceName
+                                                        end tell
+                                                end tell
+                                  end tell
+                        end tell
+                      end tell
+            end tell
+          end tell
+        
+        logEvent("Changed device to " & deviceName)
 end changeDevice

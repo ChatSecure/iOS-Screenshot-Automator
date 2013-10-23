@@ -10,6 +10,7 @@ test("Chat Test",ChatLogTest);
 
 function DeviceTest(target,app)
 {
+	target.delay(2);
 	var model = target.model();
 
 	if (model.match(/iPhone/))
@@ -91,7 +92,7 @@ function ChatLogTest(target,app)
 {
 	var tableView = app.mainWindow().tableViews()[0];
 	tableView.cells()[0].tap();
-	target.delay(1);
+	target.delay(3);
 	captureLocalizedScreenshot("ChatLog");
 	target.delay(1);
 }
